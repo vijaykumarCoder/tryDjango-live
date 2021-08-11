@@ -1,0 +1,45 @@
+{% extends 'products/main.html'%}
+
+{%block content%}
+<h2>This is Products page</h2>
+<hr>
+<p><a href="{% url 'create_order' %}">create order</a></p>
+<hr>
+<table>
+    <tr>
+        <th>
+            products name
+        </th>
+        <th>
+            product view
+        </th>
+    </tr>
+
+{%for p in product_details%}
+    <tr>
+        <td>
+            {{p.name}}
+        </td>
+        <td>
+            <a href="{% url 'product_view' p.id %}">view</a>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+<hr>
+<table>
+    <tr>
+        <th>order name</th>
+        <th>order date</th>
+    </tr>
+    {% for o in allOrders %}
+        <tr>
+            <td>{{o.products}}</td>
+            <td>{{o.date_of_created}}</td>
+            <td><a href="{% url 'update_order' o.id%}">update</a></td>
+            <td><a href="{% url 'remove_order' o.id%}">remove</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

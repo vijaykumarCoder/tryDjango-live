@@ -1,0 +1,16 @@
+{% extends 'products/main.html'%}
+
+{% block content %}
+<table>
+    <tr>
+        <th>product name</th>
+        <th>Product Price</th>
+    </tr>
+
+        <tr>
+            <td>{{product_view.name}}</td>
+            <td>{{product_view.price}}</td>
+        </tr>
+
+</table>
+{% endblock%}

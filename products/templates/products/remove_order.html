@@ -1,0 +1,9 @@
+{% extends 'products/main.html' %}
+{% block content %}
+    <p>Are you sure you want to delete " {{remove.id}} "</p>
+    <form action="{% url 'remove_order' remove.id %}" method="POST">
+        {% csrf_token %}
+        <p><a href="{% url 'home' %}">cancel</a></p>
+        <input type="submit" value="remove" >
+    </form>
+{% endblock %}
